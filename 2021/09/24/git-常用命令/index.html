@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hanyalei1995.github.io","root":"/blog/","images":"/blog/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js" defer></script>
+
+    <meta name="description" content="git 提交代码常用命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git 常用命令">
+<meta property="og:url" content="https://hanyalei1995.github.io/2021/09/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="韩贺儿">
+<meta property="og:description" content="git 提交代码常用命令">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-24T11:31:42.000Z">
+<meta property="article:modified_time" content="2026-04-01T01:46:58.361Z">
+<meta property="article:author" content="韩贺儿">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hanyalei1995.github.io/2021/09/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hanyalei1995.github.io/2021/09/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/","path":"2021/09/24/git-常用命令/","title":"git 常用命令"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>git 常用命令 | 韩贺儿</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/blog/js/utils.js" defer></script><script src="/blog/js/motion.js" defer></script><script src="/blog/js/sidebar.js" defer></script><script src="/blog/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">韩贺儿</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">git 提交代码流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%90%8C%E6%AD%A5git%E4%BB%93%E5%BA%93%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">1. 同步git仓库代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A3%80%E6%9F%A5%E5%90%8C%E6%AD%A5%E7%BB%93%E6%9E%9C"><span class="nav-number">1.2.</span> <span class="nav-text">2. 检查同步结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8B%A5%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E5%92%8C%E4%BB%93%E5%BA%93%E4%BB%A3%E7%A0%81%E6%9C%89%E5%86%B2%E7%AA%81%EF%BC%8C-%E5%88%99%E6%8C%89%E7%85%A7%E4%B8%8B%E9%9D%A2%E6%B5%81%E7%A8%8B%E8%A7%A3%E5%86%B3"><span class="nav-number">1.2.1.</span> <span class="nav-text">若本地代码和仓库代码有冲突， 则按照下面流程解决</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%9A%82%E5%AD%98%E8%87%AA%E5%B7%B1%E7%9A%84%E6%94%B9%E5%8A%A8"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">1. 暂存自己的改动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%90%8C%E6%AD%A5%E6%9B%B4%E6%96%B0%E8%8E%B7%E5%8F%96%E6%9C%80%E6%96%B0%E7%9A%84%E6%94%B9%E5%8A%A8"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">2. 同步更新获取最新的改动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%81%A2%E5%A4%8D%E6%9C%AC%E5%9C%B0%E7%9A%84%E6%94%B9%E5%8A%A8"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">3. 恢复本地的改动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">4. 在代码中解决冲突</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">3. 查看状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%90%8C%E6%AD%A5git%E4%BB%93%E5%BA%93%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.3.</span> <span class="nav-text">4. 同步git仓库代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E9%80%89%E6%8B%A9%E8%A6%81%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.4.</span> <span class="nav-text">5. 选择要提交的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6-%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%8F%90%E4%BA%A4%E5%86%85%E5%AE%B9%E5%A4%87%E6%B3%A8"><span class="nav-number">1.2.5.</span> <span class="nav-text">6. 提交文件, 并添加提交内容备注</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E5%88%B0git%E4%BB%93%E5%BA%93"><span class="nav-number">1.2.6.</span> <span class="nav-text">7. 提交代码到git仓库</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">韩贺儿</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/blog/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/blog/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hanyalei1995.github.io/2021/09/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="韩贺儿">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="韩贺儿">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="git 常用命令 | 韩贺儿">
+      <meta itemprop="description" content="git 提交代码常用命令">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          git 常用命令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-24 11:31:42" itemprop="dateCreated datePublished" datetime="2021-09-24T11:31:42+00:00">2021-09-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-04-01 01:46:58" itemprop="dateModified" datetime="2026-04-01T01:46:58+00:00">2026-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" itemprop="url" rel="index"><span itemprop="name">版本控制</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">git 提交代码常用命令</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="git-提交代码流程"><a href="#git-提交代码流程" class="headerlink" title="git 提交代码流程"></a>git 提交代码流程</h1><h2 id="1-同步git仓库代码"><a href="#1-同步git仓库代码" class="headerlink" title="1. 同步git仓库代码"></a>1. 同步git仓库代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 同步仓库代码到本地仓库</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-检查同步结果"><a href="#2-检查同步结果" class="headerlink" title="2. 检查同步结果"></a>2. 检查同步结果</h2><h3 id="若本地代码和仓库代码有冲突，-则按照下面流程解决"><a href="#若本地代码和仓库代码有冲突，-则按照下面流程解决" class="headerlink" title="若本地代码和仓库代码有冲突， 则按照下面流程解决"></a>若本地代码和仓库代码有冲突， 则按照下面流程解决</h3><h4 id="1-暂存自己的改动"><a href="#1-暂存自己的改动" class="headerlink" title="1. 暂存自己的改动"></a>1. 暂存自己的改动</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-同步更新获取最新的改动"><a href="#2-同步更新获取最新的改动" class="headerlink" title="2. 同步更新获取最新的改动"></a>2. 同步更新获取最新的改动</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-恢复本地的改动"><a href="#3-恢复本地的改动" class="headerlink" title="3. 恢复本地的改动"></a>3. 恢复本地的改动</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-在代码中解决冲突"><a href="#4-在代码中解决冲突" class="headerlink" title="4. 在代码中解决冲突"></a>4. 在代码中解决冲突</h4><h3 id="3-查看状态"><a href="#3-查看状态" class="headerlink" title="3. 查看状态"></a>3. 查看状态</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-同步git仓库代码"><a href="#4-同步git仓库代码" class="headerlink" title="4. 同步git仓库代码"></a>4. 同步git仓库代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-选择要提交的文件"><a href="#5-选择要提交的文件" class="headerlink" title="5. 选择要提交的文件"></a>5. 选择要提交的文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add ./要提交文件的路径, 没路径默认提交当前目录下所有需要提交的内容</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-提交文件-并添加提交内容备注"><a href="#6-提交文件-并添加提交内容备注" class="headerlink" title="6. 提交文件, 并添加提交内容备注"></a>6. 提交文件, 并添加提交内容备注</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &#x27;要添加的备注内容&#x27;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-提交代码到git仓库"><a href="#7-提交代码到git仓库" class="headerlink" title="7. 提交代码到git仓库"></a>7. 提交代码到git仓库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/git/" rel="tag"># git</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/2021/09/30/spring-boot%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90/" rel="next" title="spring-boot多数据源">
+                  spring-boot多数据源 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">韩贺儿</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

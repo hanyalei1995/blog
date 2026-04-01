@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hanyalei1995.github.io","root":"/blog/","images":"/blog/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js" defer></script>
+
+    <meta name="description" content="来自 Boris Cherny（Claude Code 创始人）的最新分享，15条实用技巧覆盖移动编程、远程控制、自动化循环、Browser Extension 等核心功能。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Code 创始人最新 15 条使用技巧全解析">
+<meta property="og:url" content="https://hanyalei1995.github.io/2026/03/31/2026-03-31-claude-code-15-skills/index.html">
+<meta property="og:site_name" content="韩贺儿">
+<meta property="og:description" content="来自 Boris Cherny（Claude Code 创始人）的最新分享，15条实用技巧覆盖移动编程、远程控制、自动化循环、Browser Extension 等核心功能。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-31T13:05:00.000Z">
+<meta property="article:modified_time" content="2026-04-01T01:46:58.361Z">
+<meta property="article:author" content="韩贺儿">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Claude Code">
+<meta property="article:tag" content="效率工具">
+<meta property="article:tag" content="编程工具">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hanyalei1995.github.io/2026/03/31/2026-03-31-claude-code-15-skills/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hanyalei1995.github.io/2026/03/31/2026-03-31-claude-code-15-skills/","path":"2026/03/31/2026-03-31-claude-code-15-skills/","title":"Claude Code 创始人最新 15 条使用技巧全解析"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Claude Code 创始人最新 15 条使用技巧全解析 | 韩贺儿</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/blog/js/utils.js" defer></script><script src="/blog/js/motion.js" defer></script><script src="/blog/js/sidebar.js" defer></script><script src="/blog/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">韩贺儿</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A4%96-Claude-Code-15%E9%A1%B9%E6%8A%80%E8%83%BD%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C"><span class="nav-number">1.</span> <span class="nav-text">🤖 Claude Code 15项技能速查手册</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%B1-%E6%8A%80%E8%83%BD1%EF%BC%9A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BC%96%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">1.1.</span> <span class="nav-text">📱 技能1：移动端编程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.1.2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%9F%E5%AE%9E%E6%A1%88%E4%BE%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">真实案例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%84-%E6%8A%80%E8%83%BD2%EF%BC%9A%E8%BF%9C%E7%A8%8B%E4%BC%9A%E8%AF%9D%E6%8E%A7%E5%88%B6"><span class="nav-number">1.2.</span> <span class="nav-text">🔄 技能2：远程会话控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%9F%E5%AE%9E%E6%A1%88%E4%BE%8B-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">真实案例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9A%A1-%E6%8A%80%E8%83%BD3%EF%BC%9A%E8%87%AA%E5%8A%A8%E5%8C%96%E5%BE%AA%E7%8E%AF%EF%BC%88Loop-Perpetual-Tasks%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">⚡ 技能3：自动化循环（Loop + Perpetual Tasks）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loop-vs-Perpetual-%E5%AF%B9%E6%AF%94"><span class="nav-number">1.3.2.</span> <span class="nav-text">Loop vs Perpetual 对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%9F%E5%AE%9E%E6%A1%88%E4%BE%8B-2"><span class="nav-number">1.3.3.</span> <span class="nav-text">真实案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%9A%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.4.</span> <span class="nav-text">骚操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8C%90-%E6%8A%80%E8%83%BD4%EF%BC%9A%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90%EF%BC%88Lifecycle-Hooks%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">🌐 技能4：生命周期钩子（Lifecycle Hooks）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E7%B1%BB%E6%AF%94"><span class="nav-number">1.4.3.</span> <span class="nav-text">核心类比</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%96%A5%EF%B8%8F-%E6%8A%80%E8%83%BD5%EF%BC%9A%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E9%9B%86%E6%88%90"><span class="nav-number">1.5.</span> <span class="nav-text">🖥️ 技能5：桌面应用集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-4"><span class="nav-number">1.5.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-3"><span class="nav-number">1.5.2.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%91%80-%E6%8A%80%E8%83%BD6%EF%BC%9ABrowser-Extension%EF%BC%88%E6%9C%80%E9%87%8D%E8%A6%81%E6%8A%80%E5%B7%A7%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">👀 技能6：Browser Extension（最重要技巧）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-5"><span class="nav-number">1.6.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E4%BB%B7%E5%80%BC"><span class="nav-number">1.6.2.</span> <span class="nav-text">核心价值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7%E5%90%8E"><span class="nav-number">1.6.3.</span> <span class="nav-text">升级后</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Desktop-%E7%AB%AF%E4%BC%98%E5%8A%BF"><span class="nav-number">1.6.4.</span> <span class="nav-text">Desktop 端优势</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8C%B3-%E6%8A%80%E8%83%BD7%EF%BC%9A%E4%BC%9A%E8%AF%9D%E5%88%86%E6%94%AF%EF%BC%88Session-Branching%EF%BC%89"><span class="nav-number">1.7.</span> <span class="nav-text">🌳 技能7：会话分支（Session Branching）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-6"><span class="nav-number">1.7.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-4"><span class="nav-number">1.7.2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E8%80%85%E8%AF%84%E4%BB%B7"><span class="nav-number">1.7.3.</span> <span class="nav-text">作者评价</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%91%BB-%E6%8A%80%E8%83%BD8%EF%BC%9A%E5%B9%BD%E7%81%B5%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%88Ephemeral-Context%EF%BC%89"><span class="nav-number">1.8.</span> <span class="nav-text">👻 技能8：幽灵上下文（Ephemeral Context）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-7"><span class="nav-number">1.8.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-5"><span class="nav-number">1.8.2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boris-%E5%8E%9F%E8%AF%9D"><span class="nav-number">1.8.3.</span> <span class="nav-text">Boris 原话</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8F%97%EF%B8%8F-%E6%8A%80%E8%83%BD9%EF%BC%9AWorkspaces%EF%BC%88%E6%B2%99%E7%AE%B1%E9%9A%94%E7%A6%BB%EF%BC%89"><span class="nav-number">1.9.</span> <span class="nav-text">🏗️ 技能9：Workspaces（沙箱隔离）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-8"><span class="nav-number">1.9.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-6"><span class="nav-number">1.9.2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E8%80%85%E8%AF%84%E4%BB%B7-1"><span class="nav-number">1.9.3.</span> <span class="nav-text">作者评价</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%80-%E6%8A%80%E8%83%BD10%EF%BC%9AMission-Control%EF%BC%88%E5%86%9B%E5%9B%A2%E5%BC%8F%E7%BC%96%E7%A8%8B%EF%BC%89"><span class="nav-number">1.10.</span> <span class="nav-text">🚀 技能10：Mission Control（军团式编程）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-9"><span class="nav-number">1.10.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-7"><span class="nav-number">1.10.2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%9F%E5%AE%9E%E6%A1%88%E4%BE%8B-3"><span class="nav-number">1.10.3.</span> <span class="nav-text">真实案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E8%80%85%E9%9C%87%E6%83%8A"><span class="nav-number">1.10.4.</span> <span class="nav-text">作者震惊</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9A%A1-%E6%8A%80%E8%83%BD11%EF%BC%9A%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%EF%BC%88Skip-%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0%EF%BC%89"><span class="nav-number">1.11.</span> <span class="nav-text">⚡ 技能11：快速启动模式（Skip 自动发现）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-10"><span class="nav-number">1.11.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9A%A0%EF%B8%8F-%E6%B3%A8%E6%84%8F"><span class="nav-number">1.11.2.</span> <span class="nav-text">⚠️ 注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-8"><span class="nav-number">1.11.3.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%97-%E6%8A%80%E8%83%BD12%EF%BC%9A%E5%A4%9A%E4%BB%93%E5%BA%93%E6%84%9F%E7%9F%A5"><span class="nav-number">1.12.</span> <span class="nav-text">🔗 技能12：多仓库感知</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-11"><span class="nav-number">1.12.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-9"><span class="nav-number">1.12.2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boris-%E4%B9%A0%E6%83%AF"><span class="nav-number">1.12.3.</span> <span class="nav-text">Boris 习惯</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%AD-%E6%8A%80%E8%83%BD13%EF%BC%9AAgent-%E6%8C%87%E4%BB%A4%E9%9B%86%EF%BC%88Agent-Instructions%EF%BC%89"><span class="nav-number">1.13.</span> <span class="nav-text">🎭 技能13：Agent 指令集（Agent Instructions）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-12"><span class="nav-number">1.13.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-10"><span class="nav-number">1.13.2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boris-%E5%8E%9F%E8%AF%9D-1"><span class="nav-number">1.13.3.</span> <span class="nav-text">Boris 原话</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%A4-%E6%8A%80%E8%83%BD14%EF%BC%9A%E8%AF%AD%E9%9F%B3-%E6%89%93%E5%AD%97%E6%B7%B7%E5%90%88%E8%BE%93%E5%85%A5"><span class="nav-number">1.14.</span> <span class="nav-text">🎤 技能14：语音 + 打字混合输入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-13"><span class="nav-number">1.14.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boris-%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">1.14.2.</span> <span class="nav-text">Boris 的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-11"><span class="nav-number">1.14.3.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AA%E6%9D%A5%E8%B6%8B%E5%8A%BF"><span class="nav-number">1.14.4.</span> <span class="nav-text">未来趋势</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%B2-%E6%8A%80%E8%83%BD15%EF%BC%9A%E6%B6%88%E6%81%AF%E6%A1%A5%E6%8E%A5%EF%BC%88Message-Bridging%EF%BC%89"><span class="nav-number">1.15.</span> <span class="nav-text">📲 技能15：消息桥接（Message Bridging）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-14"><span class="nav-number">1.15.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-12"><span class="nav-number">1.15.2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%84%8F%E4%B9%89"><span class="nav-number">1.15.3.</span> <span class="nav-text">核心意义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8A-%E6%8A%80%E8%83%BD%E9%80%9F%E6%9F%A5%E6%80%BB%E8%A1%A8"><span class="nav-number">1.16.</span> <span class="nav-text">📊 技能速查总表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%A5-Boris-%E6%A0%B8%E5%BF%83%E5%BF%A0%E5%91%8A"><span class="nav-number">1.17.</span> <span class="nav-text">🔥 Boris 核心忠告</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%92%A1-%E6%80%BB%E7%BB%93"><span class="nav-number">1.18.</span> <span class="nav-text">💡 总结</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">韩贺儿</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/blog/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/blog/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hanyalei1995.github.io/2026/03/31/2026-03-31-claude-code-15-skills/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="韩贺儿">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="韩贺儿">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Claude Code 创始人最新 15 条使用技巧全解析 | 韩贺儿">
+      <meta itemprop="description" content="来自 Boris Cherny（Claude Code 创始人）的最新分享，15条实用技巧覆盖移动编程、远程控制、自动化循环、Browser Extension 等核心功能。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Claude Code 创始人最新 15 条使用技巧全解析
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-31 13:05:00" itemprop="dateCreated datePublished" datetime="2026-03-31T13:05:00+00:00">2026-03-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-04-01 01:46:58" itemprop="dateModified" datetime="2026-04-01T01:46:58+00:00">2026-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/AI%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">AI工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">来自 Boris Cherny（Claude Code 创始人）的最新分享，15条实用技巧覆盖移动编程、远程控制、自动化循环、Browser Extension 等核心功能。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>本文是对 Claude Code 创始人 Boris Cherny 最新分享的深度解析，原文来自花叔的微信公众号整理。</p>
+</blockquote>
+<hr>
+<h1 id="🤖-Claude-Code-15项技能速查手册"><a href="#🤖-Claude-Code-15项技能速查手册" class="headerlink" title="🤖 Claude Code 15项技能速查手册"></a>🤖 Claude Code 15项技能速查手册</h1><h2 id="📱-技能1：移动端编程控制"><a href="#📱-技能1：移动端编程控制" class="headerlink" title="📱 技能1：移动端编程控制"></a>📱 技能1：移动端编程控制</h2><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式1：通过 CLAUDE.md 侧边栏</span></span><br><span class="line"><span class="comment"># 在 Claude Code 左侧切换到标签页，手机扫码配对</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式2：安装 mcp-notify</span></span><br><span class="line"><span class="comment"># 手机上给正在运行的会话推送消息、追加指令</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式3：CLAUDE_PORT</span></span><br><span class="line">claude session attach    <span class="comment"># 生成会话 + 二维码，手机扫码后控制</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>通勤时让 CC 在家中的电脑上处理简单任务</li>
+<li>长任务跑着，自己出门了，路上追加指令</li>
+<li>查看进度，不打断主任务</li>
+</ul>
+<h3 id="真实案例"><a href="#真实案例" class="headerlink" title="真实案例"></a>真实案例</h3><blockquote>
+<p>Boris 在沙发上用手机让 CC 处理了一个简单任务，完成后手机收到通知</p>
+</blockquote>
+<hr>
+<h2 id="🔄-技能2：远程会话控制"><a href="#🔄-技能2：远程会话控制" class="headerlink" title="🔄 技能2：远程会话控制"></a>🔄 技能2：远程会话控制</h2><h3 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 把云端会话拉回本地终端继续</span></span><br><span class="line">claude session pull    <span class="comment"># 单向：拉回本地</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在公司电脑上启动会话 → 下班路上用手机批准权限请求 → 到家后在个人电脑继续</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="适用场景-1"><a href="#适用场景-1" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>公司电脑启动会话做重构 → 下班路上手机审批权限 → 到家后切到个人电脑继续</li>
+<li>云端任务做到一半，想在本地终端接手</li>
+<li>长任务中途需要审批危险命令，人不在电脑前</li>
+</ul>
+<h3 id="真实案例-1"><a href="#真实案例-1" class="headerlink" title="真实案例"></a>真实案例</h3><blockquote>
+<p>Boris 说他直接在设置里开了「默认始终开启 Pull」—— 会话不再绑定某台设备，跟着你走</p>
+</blockquote>
+<hr>
+<h2 id="⚡-技能3：自动化循环（Loop-Perpetual-Tasks）"><a href="#⚡-技能3：自动化循环（Loop-Perpetual-Tasks）" class="headerlink" title="⚡ 技能3：自动化循环（Loop + Perpetual Tasks）"></a>⚡ 技能3：自动化循环（Loop + Perpetual Tasks）</h2><h3 id="使用方法-2"><a href="#使用方法-2" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Loop：当前会话内循环执行（退出即消失，适合短期监控）</span></span><br><span class="line"><span class="comment"># 例：每小时检查一次部署状态</span></span><br><span class="line">/loop <span class="string">&quot;检查部署，日志整理成列表发给我&quot;</span></span><br><span class="line"></span><br><span class="line">/<span class="comment"># Perpetual：持久化定时任务（重启后依然在跑，适合长期自动化）</span></span><br><span class="line"><span class="comment"># 例：每天早上8点自动跑测试</span></span><br><span class="line">/perpetual <span class="string">&quot;每天8点自动跑测试，检查所有单元测试&quot;</span></span><br><span class="line"></span><br><span class="line">/<span class="comment"># 权限请求路由到手机审批</span></span><br><span class="line">/permission-remote-approve <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Loop-vs-Perpetual-对比"><a href="#Loop-vs-Perpetual-对比" class="headerlink" title="Loop vs Perpetual 对比"></a>Loop vs Perpetual 对比</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>Loop</th>
+<th>Perpetual</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>持久性</td>
+<td>退出即消失</td>
+<td>重启后依然在跑</td>
+</tr>
+<tr>
+<td>时间</td>
+<td>单会话内</td>
+<td>定时任务</td>
+</tr>
+<tr>
+<td>适用</td>
+<td>一小时监控部署</td>
+<td>每天早上跑测试</td>
+</tr>
+<tr>
+<td>过期</td>
+<td>1天自动过期</td>
+<td>无</td>
+</tr>
+</tbody></table>
+<h3 id="真实案例-2"><a href="#真实案例-2" class="headerlink" title="真实案例"></a>真实案例</h3><blockquote>
+<p>Boris 跑着一堆自动化循环，”分钟一次是什么概念？你不用再盯着，它会自动回复——这不是工具，是一个真正的同事在值班”</p>
+</blockquote>
+<h3 id="骚操作"><a href="#骚操作" class="headerlink" title="骚操作"></a>骚操作</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">把权限请求路由到远程 → 地铁里审批危险命令，不用等回到电脑前</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🌐-技能4：生命周期钩子（Lifecycle-Hooks）"><a href="#🌐-技能4：生命周期钩子（Lifecycle-Hooks）" class="headerlink" title="🌐 技能4：生命周期钩子（Lifecycle Hooks）"></a>🌐 技能4：生命周期钩子（Lifecycle Hooks）</h2><h3 id="使用方法-3"><a href="#使用方法-3" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 CLAUDE.md 或项目 .claude/ 中配置</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;lifecycle&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;on-tool-call&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;before&quot;</span>: <span class="string">&quot;验证工具参数&quot;</span>,</span><br><span class="line">      <span class="string">&quot;after&quot;</span>: <span class="string">&quot;自动运行测试&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 工具名支持正则匹配</span></span><br><span class="line"><span class="comment">// 配置文件支持三个层级：全局 / 本地 / 项目</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="适用场景-2"><a href="#适用场景-2" class="headerlink" title="适用场景"></a>适用场景</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">写代码 → 自动跑单元测试 → 测试不过就自动修 → 整个链条不需要你盯着</span><br></pre></td></tr></table></figure>
+
+<h3 id="核心类比"><a href="#核心类比" class="headerlink" title="核心类比"></a>核心类比</h3><blockquote>
+<p>“Git Hooks 是<strong>提交后</strong>的自动化；Lifecycle Hooks 是<strong>代码生成时</strong>的自动化”</p>
+</blockquote>
+<hr>
+<h2 id="🖥️-技能5：桌面应用集成"><a href="#🖥️-技能5：桌面应用集成" class="headerlink" title="🖥️ 技能5：桌面应用集成"></a>🖥️ 技能5：桌面应用集成</h2><h3 id="使用方法-4"><a href="#使用方法-4" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 桌面应用里的 Desktop Controller 功能</span></span><br><span class="line"><span class="comment"># 从手机发任务 → 在桌面电脑上执行 → 完成后推送通知到手机</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以直接点击操作桌面应用（AI 操作层，3月发布）</span></span><br><span class="line"><span class="comment"># 先开放给 MCP Server 用户，随后开放给所有用户</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="适用场景-3"><a href="#适用场景-3" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>在手机上发任务，让 CC 操作桌面上的应用</li>
+<li>出门了但需要触发电脑上的某个操作</li>
+<li>跨设备工作流</li>
+</ul>
+<hr>
+<h2 id="👀-技能6：Browser-Extension（最重要技巧）"><a href="#👀-技能6：Browser-Extension（最重要技巧）" class="headerlink" title="👀 技能6：Browser Extension（最重要技巧）"></a>👀 技能6：Browser Extension（最重要技巧）</h2><h3 id="使用方法-5"><a href="#使用方法-5" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Claude Browser Extension</span></span><br><span class="line"><span class="comment"># CC 会自主完成反馈循环：</span></span><br><span class="line"><span class="comment"># 写代码 → 自己打开浏览器 → 自己截图 → 自己读控制台报错 → 自己迭代修复</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 桌面端：开箱即用，内置浏览器</span></span><br><span class="line"><span class="comment"># 非桌面端：需要手动配置 Playwright</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="核心价值"><a href="#核心价值" class="headerlink" title="核心价值"></a>核心价值</h3><blockquote>
+<p>作者以前是 CC 的「人类脚手架」：</p>
+<ul>
+<li>CC 开发完 → 启动测试服务器 → 作者去浏览器看效果 → 截图发回去 → 复制控制台报错粘给它</li>
+<li><strong>本质：作者在帮 CC 当它的眼睛</strong></li>
+</ul>
+</blockquote>
+<h3 id="升级后"><a href="#升级后" class="headerlink" title="升级后"></a>升级后</h3><blockquote>
+<p>CC 自己看页面 → 自己截图 → 自己读报错 → 自己迭代修复<br>作者从「脚手架」变成「验收员」，只需最后看一眼结果</p>
+</blockquote>
+<h3 id="Desktop-端优势"><a href="#Desktop-端优势" class="headerlink" title="Desktop 端优势"></a>Desktop 端优势</h3><blockquote>
+<p>内置浏览器，开箱即用，比第三方方案更稳定可靠</p>
+</blockquote>
+<hr>
+<h2 id="🌳-技能7：会话分支（Session-Branching）"><a href="#🌳-技能7：会话分支（Session-Branching）" class="headerlink" title="🌳 技能7：会话分支（Session Branching）"></a>🌳 技能7：会话分支（Session Branching）</h2><h3 id="使用方法-6"><a href="#使用方法-6" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在长任务的分叉路口，创建分支</span></span><br><span class="line">/branch                    <span class="comment"># 在当前位置创建分支，两个会话共享之前上下文</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 两个分支各自往不同方向走，互不影响</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="适用场景-4"><a href="#适用场景-4" class="headerlink" title="适用场景"></a>适用场景</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>架构设计提了两个方案想都试试</td>
+<td>直接 Branch，两个都跑</td>
+</tr>
+<tr>
+<td>聊了半小时到分叉路口，想试不同方向</td>
+<td>Branch，不丢上下文</td>
+</tr>
+<tr>
+<td>以前</td>
+<td>只能复制粘贴开新会话，上下文全丢了</td>
+</tr>
+</tbody></table>
+<h3 id="作者评价"><a href="#作者评价" class="headerlink" title="作者评价"></a>作者评价</h3><blockquote>
+<p>“这可能是15条里<strong>最被低估</strong>的功能”</p>
+</blockquote>
+<hr>
+<h2 id="👻-技能8：幽灵上下文（Ephemeral-Context）"><a href="#👻-技能8：幽灵上下文（Ephemeral-Context）" class="headerlink" title="👻 技能8：幽灵上下文（Ephemeral Context）"></a>👻 技能8：幽灵上下文（Ephemeral Context）</h2><h3 id="使用方法-7"><a href="#使用方法-7" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 CC 执行长任务时，临时问个快速问题</span></span><br><span class="line">/ghost <span class="string">&quot;这个函数的返回类型是什么？&quot;</span></span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line"><span class="comment"># 在 CC 工作时直接开口问，不打断主任务</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 幽灵特点：</span></span><br><span class="line"><span class="comment"># ✅ 只读模式，不触发工具，不修改文件</span></span><br><span class="line"><span class="comment"># ✅ 能看到当前对话全部上下文</span></span><br><span class="line"><span class="comment"># ✅ 不保存到主对话历史</span></span><br><span class="line"><span class="comment"># ✅ 关闭后答案消失</span></span><br><span class="line"><span class="comment"># ✅ 复用父会话，几乎无额外成本</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="适用场景-5"><a href="#适用场景-5" class="headerlink" title="适用场景"></a>适用场景</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>以前</th>
+<th>现在</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>长任务中途想问个函数返回类型</td>
+<td>等做完/打断任务</td>
+<td>直接 /ghost 问</td>
+</tr>
+<tr>
+<td>突然想起来要查个东西</td>
+<td>开新终端查</td>
+<td>直接幽灵问</td>
+</tr>
+<tr>
+<td>不确定某个 API 用法</td>
+<td>停下手头工作查</td>
+<td>边干边问</td>
+</tr>
+</tbody></table>
+<h3 id="Boris-原话"><a href="#Boris-原话" class="headerlink" title="Boris 原话"></a>Boris 原话</h3><blockquote>
+<p>Boris 说他同时跑着几十个 CC，靠的就是 Ghost——不污染主上下文，也不打断工作</p>
+</blockquote>
+<hr>
+<h2 id="🏗️-技能9：Workspaces（沙箱隔离）"><a href="#🏗️-技能9：Workspaces（沙箱隔离）" class="headerlink" title="🏗️ 技能9：Workspaces（沙箱隔离）"></a>🏗️ 技能9：Workspaces（沙箱隔离）</h2><h3 id="使用方法-8"><a href="#使用方法-8" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在同一仓库中创建多个独立工作目录</span></span><br><span class="line">/workspaces create --name 安全审查 --branch fix-security</span><br><span class="line">/workspaces create --name 功能开发 --branch feature-new</span><br><span class="line"></span><br><span class="line"><span class="comment"># 各工作目录可以：</span></span><br><span class="line"><span class="comment"># ✅ 不同的分支</span></span><br><span class="line"><span class="comment"># ✅ 互不干扰的文件系统</span></span><br><span class="line"><span class="comment"># ✅ 自动创建独立沙箱</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="适用场景-6"><a href="#适用场景-6" class="headerlink" title="适用场景"></a>适用场景</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>同一仓库同时做不同任务</td>
+<td>不会互相踩文件</td>
+</tr>
+<tr>
+<td>写坏了也不影响主分支</td>
+<td>安全隔离</td>
+</tr>
+<tr>
+<td>并行跑多个 CC 干不同事</td>
+<td>各走各的，不打架</td>
+</tr>
+</tbody></table>
+<h3 id="作者评价-1"><a href="#作者评价-1" class="headerlink" title="作者评价"></a>作者评价</h3><blockquote>
+<p>“如果你在同一个仓库里同时跑多个 CC 做不同任务，它们会互相踩文件——Workspace 是一个独立的沙箱”</p>
+</blockquote>
+<hr>
+<h2 id="🚀-技能10：Mission-Control（军团式编程）"><a href="#🚀-技能10：Mission-Control（军团式编程）" class="headerlink" title="🚀 技能10：Mission Control（军团式编程）"></a>🚀 技能10：Mission Control（军团式编程）</h2><h3 id="使用方法-9"><a href="#使用方法-9" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动 Mission Control 编排</span></span><br><span class="line">/mission-control</span><br><span class="line"></span><br><span class="line"><span class="comment"># CC 工作流程：</span></span><br><span class="line"><span class="comment"># 1. 先问&quot;你想做什么&quot;（访谈阶段）</span></span><br><span class="line"><span class="comment"># 2. 启动编排，自动调研影响范围</span></span><br><span class="line"><span class="comment"># 3. 拆分成 N 个独立执行单元</span></span><br><span class="line"><span class="comment"># 4. 每个单元在各自沙箱里并行跑</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="适用场景-7"><a href="#适用场景-7" class="headerlink" title="适用场景"></a>适用场景</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大规模代码迁移</td>
+<td>自动分析哪些文件可以并行改，同时开几十个各自干</td>
+</tr>
+<tr>
+<td>可并行化的工作</td>
+<td>Mission Control 自动拆分 + 并行执行</td>
+</tr>
+</tbody></table>
+<h3 id="真实案例-3"><a href="#真实案例-3" class="headerlink" title="真实案例"></a>真实案例</h3><blockquote>
+<p>举例：把大型项目从 JavaScript 迁移到 TypeScript，以前只能一个个改 → 现在自动分批处理 + 几十个并行跑</p>
+</blockquote>
+<h3 id="作者震惊"><a href="#作者震惊" class="headerlink" title="作者震惊"></a>作者震惊</h3><blockquote>
+<p>“这个功能我还没实际用过，但光想想就觉得恐怖——这不是辅助编程，是<strong>军团式编程</strong>“</p>
+</blockquote>
+<hr>
+<h2 id="⚡-技能11：快速启动模式（Skip-自动发现）"><a href="#⚡-技能11：快速启动模式（Skip-自动发现）" class="headerlink" title="⚡ 技能11：快速启动模式（Skip 自动发现）"></a>⚡ 技能11：快速启动模式（Skip 自动发现）</h2><h3 id="使用方法-10"><a href="#使用方法-10" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 CLAUDE.md 或环境变量中配置</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;skip&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;auto-discovery&quot;</span>: <span class="literal">true</span>,        <span class="comment"># 跳过所有自动发现</span></span><br><span class="line">    <span class="string">&quot;auto-memory&quot;</span>: <span class="literal">true</span>,            <span class="comment"># 跳过自动记忆</span></span><br><span class="line">    <span class="string">&quot;tools&quot;</span>: [<span class="string">&quot;Read&quot;</span>, <span class="string">&quot;Edit&quot;</span>, <span class="string">&quot;Bash&quot;</span>]  <span class="comment"># 只保留三个基础工具</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动速度最高提升 10x</span></span><br><span class="line"><span class="comment"># 装越多 MCP Server，跳过越多，提速越明显</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="⚠️-注意"><a href="#⚠️-注意" class="headerlink" title="⚠️ 注意"></a>⚠️ 注意</h3><blockquote>
+<p>钥匙串读取也被跳过了，需要通过环境变量或 CLAUDE.md 传入敏感信息</p>
+</blockquote>
+<h3 id="适用场景-8"><a href="#适用场景-8" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>写自动化脚本，不需要复杂上下文</li>
+<li>大批量调用，每次省几百毫秒，累积下来很可观</li>
+<li>裸配置用户也能受益</li>
+</ul>
+<hr>
+<h2 id="🔗-技能12：多仓库感知"><a href="#🔗-技能12：多仓库感知" class="headerlink" title="🔗 技能12：多仓库感知"></a>🔗 技能12：多仓库感知</h2><h3 id="使用方法-11"><a href="#使用方法-11" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在一个仓库启动会话时，加入其他仓库</span></span><br><span class="line">claude --repo /path/to/frontend --repo /path/to/backend</span><br><span class="line"></span><br><span class="line"><span class="comment"># CC 会：</span></span><br><span class="line"><span class="comment"># 1. 告诉你另一个仓库的存在</span></span><br><span class="line"><span class="comment"># 2. 给你读写权限</span></span><br><span class="line"><span class="comment"># 3. 加载 agents/ 目录下的规则（最新版本）</span></span><br><span class="line"><span class="comment"># 4. 跨仓库修改（改完库接口，自动去前端更新调用方式）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="适用场景-9"><a href="#适用场景-9" class="headerlink" title="适用场景"></a>适用场景</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>前端项目依赖内部库</td>
+<td>CC 能同时理解两个仓库的代码</td>
+</tr>
+<tr>
+<td>改了库接口</td>
+<td>自动去前端项目里更新调用方式</td>
+</tr>
+<tr>
+<td>跨仓库代码审查</td>
+<td>同时审查多个仓库</td>
+</tr>
+</tbody></table>
+<h3 id="Boris-习惯"><a href="#Boris-习惯" class="headerlink" title="Boris 习惯"></a>Boris 习惯</h3><blockquote>
+<p>通常在一个仓库启动会话，然后通过指令把其他仓库加入会话</p>
+</blockquote>
+<hr>
+<h2 id="🎭-技能13：Agent-指令集（Agent-Instructions）"><a href="#🎭-技能13：Agent-指令集（Agent-Instructions）" class="headerlink" title="🎭 技能13：Agent 指令集（Agent Instructions）"></a>🎭 技能13：Agent 指令集（Agent Instructions）</h2><h3 id="使用方法-12"><a href="#使用方法-12" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 agents/ 目录下创建专用角色</span></span><br><span class="line"><span class="comment"># agents/code-reviewer/CLAUDE.md</span></span><br><span class="line"><span class="comment"># agents/docs-writer/CLAUDE.md</span></span><br><span class="line"><span class="comment"># agents/security-scanner/CLAUDE.md</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 每个 agent 有：</span></span><br><span class="line"><span class="comment"># ✅ 自己独立的系统提示词</span></span><br><span class="line"><span class="comment"># ✅ 自己独立的工具配置</span></span><br><span class="line"><span class="comment"># ✅ 自己的性格</span></span><br><span class="line"><span class="comment"># ✅ 可以配不同的 MCP Server</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="适用场景-10"><a href="#适用场景-10" class="headerlink" title="适用场景"></a>适用场景</h3><table>
+<thead>
+<tr>
+<th>Agent 类型</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code-reviewer</td>
+<td>专门做代码审查</td>
+</tr>
+<tr>
+<td>docs-writer</td>
+<td>专门写文档</td>
+</tr>
+<tr>
+<td>security-scanner</td>
+<td>专门做安全扫描</td>
+</tr>
+</tbody></table>
+<h3 id="Boris-原话-1"><a href="#Boris-原话-1" class="headerlink" title="Boris 原话"></a>Boris 原话</h3><blockquote>
+<p>“Agent 指令集是一个完整的角色，你甚至可以给它配不同的 MCP Server，让它有不同的能力”</p>
+</blockquote>
+<hr>
+<h2 id="🎤-技能14：语音-打字混合输入"><a href="#🎤-技能14：语音-打字混合输入" class="headerlink" title="🎤 技能14：语音 + 打字混合输入"></a>🎤 技能14：语音 + 打字混合输入</h2><h3 id="使用方法-13"><a href="#使用方法-13" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 混合输入模式：</span></span><br><span class="line"><span class="comment"># 1. 先打一半文字</span></span><br><span class="line"><span class="comment"># 2. 按住空格键</span></span><br><span class="line"><span class="comment"># 3. 说后半段</span></span><br><span class="line"><span class="comment"># 4. 松开空格，两种输入无缝拼接</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Boris-的用法"><a href="#Boris-的用法" class="headerlink" title="Boris 的用法"></a>Boris 的用法</h3><blockquote>
+<p><strong>Boris 主要通过说话来写代码</strong><br>他大部分编码是「说话」而不是打字</p>
+</blockquote>
+<h3 id="适用场景-11"><a href="#适用场景-11" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>写长文案/代码，说比打快</li>
+<li>突然有灵感，语音捕获比打字快</li>
+<li>快速描述需求，不用逐字敲</li>
+</ul>
+<h3 id="未来趋势"><a href="#未来趋势" class="headerlink" title="未来趋势"></a>未来趋势</h3><blockquote>
+<p>“编程的交互方式正从『打字』变成『对话』——以前你得准确描述每个技术细节，现在可以像和同事聊天一样说’把那个登录按钮颜色改成蓝色’”</p>
+</blockquote>
+<hr>
+<h2 id="📲-技能15：消息桥接（Message-Bridging）"><a href="#📲-技能15：消息桥接（Message-Bridging）" class="headerlink" title="📲 技能15：消息桥接（Message Bridging）"></a>📲 技能15：消息桥接（Message Bridging）</h2><h3 id="使用方法-14"><a href="#使用方法-14" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 mcp-notify，给正在运行的会话推送消息</span></span><br><span class="line"><span class="comment"># 不是开新会话，而是直接推送到已打开的会话</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 例：</span></span><br><span class="line"><span class="comment"># 终端里跑着会话做重构</span></span><br><span class="line"><span class="comment"># 在手机上发：&quot;顺便把那个登录页也处理了&quot;</span></span><br><span class="line"><span class="comment"># 消息直接到达正在跑的会话</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="适用场景-12"><a href="#适用场景-12" class="headerlink" title="适用场景"></a>适用场景</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>终端跑着重构</td>
+<td>手机追加任务，不用停下手头工作</td>
+</tr>
+<tr>
+<td>外部消息源接入 CC</td>
+<td>iMessage、WhatsApp 等都可以桥接进来</td>
+</tr>
+<tr>
+<td>持续运转的工作流</td>
+<td>从任何地方发指令</td>
+</tr>
+</tbody></table>
+<h3 id="核心意义"><a href="#核心意义" class="headerlink" title="核心意义"></a>核心意义</h3><blockquote>
+<p>“这和 Claude Code 的消息桥接机制异曲同工——让外部消息源接入 AI 产品，是必经之路”</p>
+</blockquote>
+<hr>
+<h2 id="📊-技能速查总表"><a href="#📊-技能速查总表" class="headerlink" title="📊 技能速查总表"></a>📊 技能速查总表</h2><table>
+<thead>
+<tr>
+<th>#</th>
+<th>技能</th>
+<th>核心命令</th>
+<th>一句话总结</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>移动端编程</td>
+<td>mcp-notify / CLAUDE.md</td>
+<td>手机控制电脑</td>
+</tr>
+<tr>
+<td>2</td>
+<td>远程会话控制</td>
+<td><code>session attach</code> / <code>pull</code></td>
+<td>会话跟着你走</td>
+</tr>
+<tr>
+<td>3</td>
+<td>自动化循环</td>
+<td><code>/loop</code> / <code>/perpetual</code></td>
+<td>永不下班的同事</td>
+</tr>
+<tr>
+<td>4</td>
+<td>生命周期钩子</td>
+<td>CLAUDE.md lifecycle 配置</td>
+<td>代码生成时的 Git Hooks</td>
+</tr>
+<tr>
+<td>5</td>
+<td>桌面应用集成</td>
+<td>Desktop Controller</td>
+<td>手机操控桌面 App</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Browser Extension</td>
+<td>安装扩展</td>
+<td>CC 自己当自己的眼睛</td>
+</tr>
+<tr>
+<td>7</td>
+<td>会话分支</td>
+<td><code>/branch</code></td>
+<td>分叉路口不丢上下文</td>
+</tr>
+<tr>
+<td>8</td>
+<td>幽灵上下文</td>
+<td><code>/ghost</code></td>
+<td>边干边问不打断</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Workspaces</td>
+<td><code>/workspaces create</code></td>
+<td>沙箱隔离互不干扰</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Mission Control</td>
+<td><code>/mission-control</code></td>
+<td>军团式并行编程</td>
+</tr>
+<tr>
+<td>11</td>
+<td>快速启动</td>
+<td><code>skip.auto-discovery</code></td>
+<td>启动速度 10x 提升</td>
+</tr>
+<tr>
+<td>12</td>
+<td>多仓库感知</td>
+<td><code>--repo</code> 参数</td>
+<td>跨仓库代码修改</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Agent 指令集</td>
+<td><code>agents/</code> 目录</td>
+<td>专属角色定制</td>
+</tr>
+<tr>
+<td>14</td>
+<td>语音+打字混合</td>
+<td>空格语音输入</td>
+<td>说话写代码</td>
+</tr>
+<tr>
+<td>15</td>
+<td>消息桥接</td>
+<td>mcp-notify</td>
+<td>从任何地方发指令</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🔥-Boris-核心忠告"><a href="#🔥-Boris-核心忠告" class="headerlink" title="🔥 Boris 核心忠告"></a>🔥 Boris 核心忠告</h2><blockquote>
+<p>**”最重要的技巧是一种验证输出的方式”**（两次强调）</p>
+<p>“如果你让工程师做网站但不让他用浏览器，结果会好吗？大概率不行。CC 一样——它需要自己看效果、自己发现问题的反馈循环。”</p>
+</blockquote>
+<hr>
+<h2 id="💡-总结"><a href="#💡-总结" class="headerlink" title="💡 总结"></a>💡 总结</h2><p>这15条技巧展现了 Claude Code 正在从「辅助编程工具」进化为「全能编程助手」：</p>
+<ul>
+<li><strong>编程不再绑定桌面</strong> - 手机写代码、远程控制、从任何地方发任务</li>
+<li><strong>24小时永不下班</strong> - Perpetual Tasks + Loop = 自动运转</li>
+<li><strong>并行 = 生产力倍增器</strong> - 同时跑上千个，一个人的产出可相当于工程团队</li>
+<li><strong>工具在被重新定义</strong> - 不是辅助编程，是在重新定义编程工具的边界</li>
+</ul>
+<hr>
+<blockquote>
+<p>来源：Boris Cherny（Claude Code 创始人）分享，花叔整理</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/AI/" rel="tag"># AI</a>
+              <a href="/blog/tags/Claude-Code/" rel="tag"># Claude Code</a>
+              <a href="/blog/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag"># 效率工具</a>
+              <a href="/blog/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/" rel="tag"># 编程工具</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2021/09/30/spring-boot-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/" rel="prev" title="spring boot 自定义注解">
+                  <i class="fa fa-angle-left"></i> spring boot 自定义注解
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">韩贺儿</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
