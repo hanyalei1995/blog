@@ -1,0 +1,106 @@
+# Butterfly 主题自定义配置
+# 此文件覆盖 themes/butterfly/_config.yml 中的默认值
+
+# --------------------------------------
+# 侧边栏设置 - 移到左侧
+# --------------------------------------
+aside:
+  enable: true
+  hide: false
+  button: true
+  mobile: false
+  position: left   # 改为左侧
+  display:
+    archive: true
+    tag: true
+    category: true
+  card_author:
+    enable: true
+    description: 记录技术与思考
+    button:
+      enable: true
+      icon: fab fa-github
+      text: GitHub
+      link: https://github.com/hanyalei1995
+  card_announcement:
+    enable: false
+  card_recent_post:
+    enable: true
+    limit: 5
+    sort: date
+  card_categories:
+    enable: true
+    limit: 8
+    expand: none
+  card_tags:
+    enable: true
+    limit: 40
+
+# --------------------------------------
+# 首页文章布局
+# 1: 封面左，信息右  2: 封面右，信息左
+# 3: 左右交替        5: 无封面纯文字
+# 6: 瀑布流          7: 封面叠加文字
+# --------------------------------------
+index_layout: 2
+
+# --------------------------------------
+# 代码块样式
+# darker / pale night / light / ocean
+# --------------------------------------
+code_blocks:
+  theme: pale night
+  macStyle: true
+  copy: true
+  language: true
+  shrink: false
+
+# --------------------------------------
+# 主题配色 - 深蓝科技风
+# --------------------------------------
+theme_color:
+  enable: true
+  main: "#3B82F6"
+  paginator: "#3B82F6"
+  button_hover: "#1D4ED8"
+  text_selection: "#93C5FD"
+  link_color: "#3B82F6"
+  meta_color: "#6B7280"
+  hr_color: "#BFDBFE"
+  code_foreground: "#F87171"
+  code_background: "rgba(59,130,246,.08)"
+  toc_color: "#3B82F6"
+  blockquote_padding_color: "#3B82F6"
+  blockquote_background_color: "#EFF6FF"
+  scrollbar_color: "#93C5FD"
+
+# --------------------------------------
+# 默认显示模式
+# --------------------------------------
+display_mode: light
+
+# 圆角 UI
+rounded_corners_ui: true
+
+# 进入动画
+enter_transitions: true
+
+# 页面加载动画
+preloader:
+  enable: true
+  source: 2
+
+# --------------------------------------
+# 目录 TOC
+# --------------------------------------
+toc:
+  post: true
+  page: false
+  number: true
+  expand: true
+  style_simple: false
+
+# --------------------------------------
+# 右下角按钮顺序
+# --------------------------------------
+rightside_item_order: readmode,darkmode,hideAside,toc
