@@ -1,0 +1,61 @@
+info:
+  title: 韩贺儿
+  subtitle: 记录技术与思考
+  author: 韩贺儿
+  url: https://hanyalei1995.github.io/blog
+
+defaults:
+  favicon: /images/redefine-favicon.svg
+  logo:
+  avatar: /images/redefine-avatar.svg
+
+colors:
+  primary: "#3B82F6"
+  default_mode: light
+
+global:
+  content_max_width: 1000px
+  sidebar_width: 210px
+  hover:
+    shadow: true
+    scale: false
+  scroll_progress:
+    bar: true
+    percentage: false
+  single_page: true
+  preloader:
+    enable: true
+    custom_message: 加载中...
+
+nav:
+  links:
+    Home:
+      path: /
+      icon: fa-regular fa-house
+    Archives:
+      path: /archives
+      icon: fa-regular fa-box-archive
+    Tags:
+      path: /tags
+      icon: fa-regular fa-tags
+    Categories:
+      path: /categories
+      icon: fa-regular fa-folder
+
+home:
+  sidebar:
+    enable: true
+    position: left
+    author_info:
+      enable: true
+      social:
+        github: https://github.com/hanyalei1995
+    toc:
+      enable: true
+
+article:
+  toc:
+    enable: true
+    number: false
+  copyright:
+    enable: false
