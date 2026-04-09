@@ -98,6 +98,12 @@ lsof -i :8080
 df -h                    # 各挂载点磁盘使用
 du -sh /var/log/*        # 各子目录大小
 
+# 查询目录下占用磁盘大小（排序）
+du -sh /data/*           # 查看 /data 下各子目录/文件大小
+du -sh *                 # 查看当前目录下各条目大小
+du -ah /data/ | sort -rh | head -20   # 按大小降序，显示最大的20个
+du -h --max-depth=1 /var/log/         # 只展开一层目录
+
 # 内存使用
 free -h
 
