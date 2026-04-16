@@ -78,7 +78,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://hanyalei1995.github.io/2021/09/24/git-常用命令/"/>
+    <link rel="canonical" href="https://hanyalei1995.github.io/2026/04/16/2026-04-16-httpclientcontext-proxy-routing/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -87,16 +87,20 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 常用命令">
-<meta property="og:url" content="https://hanyalei1995.github.io/2021/09/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:title" content="Spring Boot 代理路由排障：为什么 HttpClientContext 没有走代理">
+<meta property="og:url" content="https://hanyalei1995.github.io/2026/04/16/2026-04-16-httpclientcontext-proxy-routing/index.html">
 <meta property="og:site_name" content="韩贺儿">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://hanyalei1995.github.io/images/redefine-og.webp">
-<meta property="article:published_time" content="2021-09-24T11:31:42.000Z">
+<meta property="article:published_time" content="2026-04-16T14:35:00.000Z">
 <meta property="article:modified_time" content="2026-04-16T07:12:11.007Z">
 <meta property="article:author" content="韩贺儿">
-<meta property="article:tag" content="git">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Spring Boot">
+<meta property="article:tag" content="HttpClient">
+<meta property="article:tag" content="Feign">
+<meta property="article:tag" content="代理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hanyalei1995.github.io/images/redefine-og.webp">
     
@@ -110,7 +114,7 @@
     
     <title>
         
-            git 常用命令 | 韩贺儿
+            Spring Boot 代理路由排障：为什么 HttpClientContext 没有走代理 | 韩贺儿
         
     </title>
 
@@ -452,7 +456,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">git 常用命令</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Spring Boot 代理路由排障：为什么 HttpClientContext 没有走代理</h1>
 			</div>
 			
 		</div>
@@ -473,8 +477,8 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2021-09-24 11:31:42</span>
-        <span class="mobile">2021-09-24 11:31:42</span>
+        <span class="desktop">2026-04-16 14:35</span>
+        <span class="mobile">2026-04-16 14:35</span>
         <span class="hover-info">创建</span>
     </span>
     
@@ -495,17 +499,7 @@
                     
                         
                         <li>
-                            <a href="/blog/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/blog/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/git/">git</a>&nbsp;
+                            <a href="/blog/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发</a>&nbsp;
                         </li>
                     
                     
@@ -519,7 +513,23 @@
             <ul>
                 
                     <li>
-                        <a href="/blog/tags/git/">git</a>&nbsp;
+                        <a href="/blog/tags/Java/">Java</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/blog/tags/Spring-Boot/">Spring Boot</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/blog/tags/HttpClient/">HttpClient</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/blog/tags/Feign/">Feign</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/blog/tags/%E4%BB%A3%E7%90%86/">代理</a>&nbsp;
                     </li>
                 
             </ul>
@@ -545,24 +555,132 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h1 id="git-提交代码流程"><a href="#git-提交代码流程" class="headerlink" title="git 提交代码流程"></a>git 提交代码流程</h1><h2 id="1-同步git仓库代码"><a href="#1-同步git仓库代码" class="headerlink" title="1. 同步git仓库代码"></a>1. 同步git仓库代码</h2><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 同步仓库代码到本地仓库</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></div>
+			<p>最近在排查一个代理问题时，表面现象很奇怪：同一套 <code>igs.proxy</code> 配置下，Feign 调外部平台接口可以正常走代理，但 <code>HttpClientContext</code> 发出去的请求却直接连目标地址，没有经过代理服务器。</p>
+<p>这类问题如果只盯着配置，很容易一直绕在 <code>pattern</code>、<code>match_url</code>、<code>feign-packages</code> 这些字段上。真正把代码链路走一遍之后，根因其实很清楚。</p>
+<p>本文就结合一个 Spring Boot 代理 starter 模块，把这套代理实现逻辑和最终修复方案完整梳理一下。</p>
+<h2 id="先看配置"><a href="#先看配置" class="headerlink" title="先看配置"></a>先看配置</h2><p>当时的配置大概是这样：</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">igs:</span></span><br><span class="line">  <span class="attr">proxy:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">feign-packages:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">com.example.bridge.external.api.*</span></span><br><span class="line">    <span class="attr">servers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">proxy-host-1</span></span><br><span class="line">        <span class="attr">port:</span> <span class="number">10080</span></span><br><span class="line">        <span class="attr">mode:</span> <span class="string">match_url</span></span><br><span class="line">        <span class="attr">patterns:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">https://openapi-b-us.example.com/**</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">proxy-host-1</span></span><br><span class="line">        <span class="attr">port:</span> <span class="number">10080</span></span><br><span class="line">        <span class="attr">mode:</span> <span class="string">match_url</span></span><br><span class="line">        <span class="attr">patterns:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">https://openapi-b-eu.example.com/**</span></span><br></pre></td></tr></table></figure></div>
 
-<h2 id="2-检查同步结果"><a href="#2-检查同步结果" class="headerlink" title="2. 检查同步结果"></a>2. 检查同步结果</h2><h3 id="若本地代码和仓库代码有冲突，-则按照下面流程解决"><a href="#若本地代码和仓库代码有冲突，-则按照下面流程解决" class="headerlink" title="若本地代码和仓库代码有冲突， 则按照下面流程解决"></a>若本地代码和仓库代码有冲突， 则按照下面流程解决</h3><h4 id="1-暂存自己的改动"><a href="#1-暂存自己的改动" class="headerlink" title="1. 暂存自己的改动"></a>1. 暂存自己的改动</h4><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure></div>
+<p>实际访问的 URL 是一个外部平台的文件下载地址：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://openapi-b-us.example.com/file-download/***.pdf?sign=***</span><br></pre></td></tr></table></figure></div>
 
-<h4 id="2-同步更新获取最新的改动"><a href="#2-同步更新获取最新的改动" class="headerlink" title="2. 同步更新获取最新的改动"></a>2. 同步更新获取最新的改动</h4><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure></div>
+<p>先说结论：这个 URL 和上面的 <code>pattern</code> 是能匹配上的，配置本身没有问题。</p>
+<h2 id="这套代理实现是怎么工作的"><a href="#这套代理实现是怎么工作的" class="headerlink" title="这套代理实现是怎么工作的"></a>这套代理实现是怎么工作的</h2><p>整个模块里，代理能力主要分成三层：</p>
+<h3 id="1-自动装配层"><a href="#1-自动装配层" class="headerlink" title="1. 自动装配层"></a>1. 自动装配层</h3><p><code>ProxyAutoConfiguration</code> 在 <code>igs.proxy.enable=true</code> 时生效，创建一个自定义的 <code>ProxyHttpClient</code>，然后做两件事：</p>
+<ul>
+<li>给 <code>RestTemplate</code> 使用</li>
+<li>通过 <code>HttpClientContext.bindIgsProxyHttpClient(...)</code> 绑定到静态工具类</li>
+</ul>
+<p>同时，它还会创建 <code>ProxyAwareTargeter</code>，让符合包名规则的 Feign 接口走代理客户端。</p>
+<h3 id="2-Feign-路由层"><a href="#2-Feign-路由层" class="headerlink" title="2. Feign 路由层"></a>2. Feign 路由层</h3><p><code>ProxyAwareTargeter</code> 的作用不是“匹配 URL 是否走代理”，而是“决定这个 Feign 客户端到底使用哪个 Client”。</p>
+<p>它的判断规则是：</p>
+<ul>
+<li>命中 <code>igs.proxy.feign-packages</code> 的 Feign 接口，使用代理 <code>HttpClient</code></li>
+<li>没命中的内部服务调用，继续使用 Spring Cloud 默认的负载均衡 Client</li>
+</ul>
+<p>这里有一个非常容易混淆的点：</p>
+<p><code>feign-packages</code> 只影响 Feign。</p>
+<p>它对 <code>HttpClientContext</code> 没有任何作用。</p>
+<h3 id="3-URL-匹配层"><a href="#3-URL-匹配层" class="headerlink" title="3. URL 匹配层"></a>3. URL 匹配层</h3><p>真正决定某个请求要不要走代理的，是 <code>ProxyRoutePlanner</code> 和 <code>ProxyUrlMatcher</code>。</p>
+<p>执行逻辑大概是这样：</p>
+<ol>
+<li><code>ProxyHttpClient.doExecute()</code> 拿到当前请求</li>
+<li>根据请求 URL 和 <code>igs.proxy.servers[*].patterns</code> 找到匹配的代理节点</li>
+<li>把匹配到的代理信息放进 <code>HttpContext</code></li>
+<li><code>ProxyRoutePlanner.determineRoute()</code> 再决定最终路由是“经代理”还是“直连”</li>
+</ol>
+<p>如果能匹配到代理节点，就会构造这样的路由：</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> HttpRoute(target, <span class="keyword">null</span>, proxyHost, secure);</span><br></pre></td></tr></table></figure></div>
 
-<h4 id="3-恢复本地的改动"><a href="#3-恢复本地的改动" class="headerlink" title="3. 恢复本地的改动"></a>3. 恢复本地的改动</h4><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure></div>
+<p>如果没有匹配到，就直接：</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> HttpRoute(target);</span><br></pre></td></tr></table></figure></div>
 
-<h4 id="4-在代码中解决冲突"><a href="#4-在代码中解决冲突" class="headerlink" title="4. 在代码中解决冲突"></a>4. 在代码中解决冲突</h4><h3 id="3-查看状态"><a href="#3-查看状态" class="headerlink" title="3. 查看状态"></a>3. 查看状态</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></div>
+<h2 id="为什么-Feign-正常，HttpClientContext-却不走代理"><a href="#为什么-Feign-正常，HttpClientContext-却不走代理" class="headerlink" title="为什么 Feign 正常，HttpClientContext 却不走代理"></a>为什么 Feign 正常，HttpClientContext 却不走代理</h2><p>问题就出在 <code>HttpClientContext</code> 这条链路上。</p>
+<p>先看 <code>HttpClientContext</code> 的发送逻辑，它最终是这样的：</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response = httpClient.execute(requestBase);</span><br></pre></td></tr></table></figure></div>
 
-<h3 id="4-同步git仓库代码"><a href="#4-同步git仓库代码" class="headerlink" title="4. 同步git仓库代码"></a>4. 同步git仓库代码</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure></div>
+<p>也就是说，它底层确实是走了已经绑定进去的 <code>ProxyHttpClient</code>，理论上应该能复用同一套路由能力。</p>
+<p>但继续往下跟，会发现有个关键细节。</p>
+<h3 id="doExecute-阶段已经匹配过一次代理"><a href="#doExecute-阶段已经匹配过一次代理" class="headerlink" title="doExecute 阶段已经匹配过一次代理"></a>doExecute 阶段已经匹配过一次代理</h3><p>在 <code>ProxyHttpClient.doExecute()</code> 里，请求执行前会先做一次匹配：</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ProxyProperties.ProxyServer matchedProxy =</span><br><span class="line">        urlMatcher.getMatchedProxy(httpRequest, proxyProperties.getServers());</span><br></pre></td></tr></table></figure></div>
 
-<h3 id="5-选择要提交的文件"><a href="#5-选择要提交的文件" class="headerlink" title="5. 选择要提交的文件"></a>5. 选择要提交的文件</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add ./要提交文件的路径, 没路径默认提交当前目录下所有需要提交的内容</span><br></pre></td></tr></table></figure></div>
+<p>如果找到了代理节点，就会把它放进上下文：</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.setAttribute(<span class="string">&quot;selectedProxy&quot;</span>, matchedProxy);</span><br></pre></td></tr></table></figure></div>
 
-<h3 id="6-提交文件-并添加提交内容备注"><a href="#6-提交文件-并添加提交内容备注" class="headerlink" title="6. 提交文件, 并添加提交内容备注"></a>6. 提交文件, 并添加提交内容备注</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &#x27;要添加的备注内容&#x27;</span><br></pre></td></tr></table></figure></div>
+<p>按理说，这时候代理已经选好了。</p>
+<h3 id="RoutePlanner-阶段又重新匹配了一次"><a href="#RoutePlanner-阶段又重新匹配了一次" class="headerlink" title="RoutePlanner 阶段又重新匹配了一次"></a>RoutePlanner 阶段又重新匹配了一次</h3><p>旧实现里的 <code>ProxyRoutePlanner.determineRoute()</code> 没有优先使用这个已经选好的 <code>selectedProxy</code>，而是重新拿 <code>request</code> 去匹配：</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ProxyProperties.ProxyServer matchedProxy =</span><br><span class="line">        urlMatcher.getMatchedProxy(request, proxyProperties.getServers());</span><br></pre></td></tr></table></figure></div>
 
-<h3 id="7-提交代码到git仓库"><a href="#7-提交代码到git仓库" class="headerlink" title="7. 提交代码到git仓库"></a>7. 提交代码到git仓库</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure></div>
+<p>这一步就是问题所在。</p>
+<p>因为 Apache HttpClient 到了路由阶段，<code>request</code> 不一定还是最初那个完整绝对 URL。很多时候它只剩下相对路径，比如：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/download-path/***.pdf?signature=***</span><br></pre></td></tr></table></figure></div>
 
+<p>而我们的配置模式是：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://openapi-b-us.example.com/**</span><br></pre></td></tr></table></figure></div>
+
+<p>这时重新匹配当然就失败了，最终路由退化成直连。</p>
+<h2 id="根因总结"><a href="#根因总结" class="headerlink" title="根因总结"></a>根因总结</h2><p>不是配置错了，也不是 <code>HttpClientContext</code> 完全没用代理客户端。</p>
+<p>真正的根因是：</p>
+<ul>
+<li><code>ProxyHttpClient</code> 在执行前已经匹配到了代理</li>
+<li>但 <code>ProxyRoutePlanner</code> 在路由阶段没有复用这个结果</li>
+<li>而是对可能已经变成“相对 URI”的请求重新匹配</li>
+<li>最终导致匹配丢失，请求走直连</li>
+</ul>
+<p>这也是为什么 Feign 看起来是正常的，而 <code>HttpClientContext</code> 暴露出了问题。</p>
+<h2 id="最小修复方案"><a href="#最小修复方案" class="headerlink" title="最小修复方案"></a>最小修复方案</h2><p>最稳妥的改法不是重写匹配规则，而是让 <code>ProxyRoutePlanner</code> 优先使用 <code>HttpContext</code> 中已经选好的代理：</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ProxyProperties.ProxyServer matchedProxy = getSelectedProxy(context);</span><br><span class="line"><span class="keyword">if</span> (matchedProxy == <span class="keyword">null</span>) &#123;</span><br><span class="line">    matchedProxy = urlMatcher.getMatchedProxy(request, proxyProperties.getServers());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>对应的辅助方法也很简单：</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> ProxyProperties.<span class="function">ProxyServer <span class="title">getSelectedProxy</span><span class="params">(HttpContext context)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (context == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Object selectedProxy = context.getAttribute(<span class="string">&quot;selectedProxy&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (selectedProxy <span class="keyword">instanceof</span> ProxyProperties.ProxyServer) &#123;</span><br><span class="line">        <span class="keyword">return</span> (ProxyProperties.ProxyServer) selectedProxy;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>这样改完之后，执行链路就变成了：</p>
+<ol>
+<li><code>ProxyHttpClient</code> 先根据完整 URL 选出代理</li>
+<li>把代理节点写入 <code>HttpContext</code></li>
+<li><code>ProxyRoutePlanner</code> 优先读取上下文中的 <code>selectedProxy</code></li>
+<li>只有上下文没有值时，才回退到重新匹配</li>
+</ol>
+<p>这个改动非常小，但能把整个行为修正回来，而且不会影响 Feign 的现有逻辑。</p>
+<h2 id="回归测试怎么写"><a href="#回归测试怎么写" class="headerlink" title="回归测试怎么写"></a>回归测试怎么写</h2><p>为了避免以后再出现同样的问题，我补了一个针对性的单测，场景就是：</p>
+<ul>
+<li><code>HttpContext</code> 里已经放入了选中的代理</li>
+<li>传给 <code>RoutePlanner</code> 的请求只剩相对路径</li>
+<li>最终仍然应该返回代理路由</li>
+</ul>
+<p>测试核心断言如下：</p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">assertEquals(<span class="string">&quot;proxy-host-1&quot;</span>, route.getProxyHost().getHostName());</span><br><span class="line">assertEquals(<span class="number">10080</span>, route.getProxyHost().getPort());</span><br></pre></td></tr></table></figure></div>
+
+<p>在 Java 1.8 环境下跑完整个代理 starter 模块测试，结果是：</p>
+<ul>
+<li><code>Tests run: 13</code></li>
+<li><code>Failures: 0</code></li>
+<li><code>Errors: 0</code></li>
+</ul>
+<p>说明这次修复既覆盖了目标问题，也没有破坏原有的 Feign 包路由逻辑。</p>
+<h2 id="这个问题给我的两个提醒"><a href="#这个问题给我的两个提醒" class="headerlink" title="这个问题给我的两个提醒"></a>这个问题给我的两个提醒</h2><h3 id="1-不要把“Feign-是否走代理”和“URL-是否匹配代理”混为一谈"><a href="#1-不要把“Feign-是否走代理”和“URL-是否匹配代理”混为一谈" class="headerlink" title="1. 不要把“Feign 是否走代理”和“URL 是否匹配代理”混为一谈"></a>1. 不要把“Feign 是否走代理”和“URL 是否匹配代理”混为一谈</h3><p>这是两层不同的判断：</p>
+<ul>
+<li><code>feign-packages</code> 决定 Feign 用哪个 <code>Client</code></li>
+<li><code>servers.patterns</code> 决定具体请求是否匹配代理节点</li>
+</ul>
+<p>很多排障时间都浪费在把这两个维度混在一起看。</p>
+<h3 id="2-上下文里已经算出的结果，后续阶段尽量复用"><a href="#2-上下文里已经算出的结果，后续阶段尽量复用" class="headerlink" title="2. 上下文里已经算出的结果，后续阶段尽量复用"></a>2. 上下文里已经算出的结果，后续阶段尽量复用</h3><p>如果一个请求在前置阶段已经完成了代理选择，后面最好直接复用，不要依赖“再次推导”。</p>
+<p>因为请求对象在不同执行阶段很可能发生变化：</p>
+<ul>
+<li>绝对 URL 变相对路径</li>
+<li>host 信息从 request 挪到 target</li>
+<li>query string 表达方式变化</li>
+</ul>
+<p>这些都会让“重新匹配”变得不可靠。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这次问题的表象是 <code>HttpClientContext</code> 没有走代理，但真正原因并不是配置错误，而是路由阶段把已经匹配成功的代理信息弄丢了。</p>
+<p>修复思路也很简单：</p>
+<ul>
+<li>不改现有配置协议</li>
+<li>不改 Feign 的包路由策略</li>
+<li>只让 <code>ProxyRoutePlanner</code> 优先读取 <code>HttpContext</code> 里的 <code>selectedProxy</code></li>
+</ul>
+<p>这种修法改动小、风险低，而且逻辑上也更合理。</p>
+<p>如果你在项目里也遇到“同样配置下，有的调用走代理、有的调用不走代理”的情况，建议第一时间把整条调用链分层看清楚：到底是客户端选择错了，还是路由阶段把已经选好的代理丢了。</p>
 
 		</div>
 
@@ -570,10 +688,10 @@
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> git 常用命令</li>
+        <li><strong>标题:</strong> Spring Boot 代理路由排障：为什么 HttpClientContext 没有走代理</li>
         <li><strong>作者:</strong> 韩贺儿</li>
         <li><strong>创建于
-                :</strong> 2021-09-24 11:31:42</li>
+                :</strong> 2026-04-16 14:35:00</li>
         
             <li>
                 <strong>更新于
@@ -581,7 +699,7 @@
             </li>
         
         <li>
-            <strong>链接:</strong> https://hanyalei1995.github.io/blog/2021/09/24/git-常用命令/
+            <strong>链接:</strong> https://hanyalei1995.github.io/blog/2026/04/16/2026-04-16-httpclientcontext-proxy-routing/
         </li>
         <li>
             <strong>
@@ -603,7 +721,23 @@
 		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
 			
 			<li class="tag-item mx-0.5">
-				<a href="/blog/tags/git/">#git</a>&nbsp;
+				<a href="/blog/tags/Java/">#Java</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/blog/tags/Spring-Boot/">#Spring Boot</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/blog/tags/HttpClient/">#HttpClient</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/blog/tags/Feign/">#Feign</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/blog/tags/%E4%BB%A3%E7%90%86/">#代理</a>&nbsp;
 			</li>
 			
 		</ul>
@@ -614,18 +748,18 @@
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
-			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/blog/2021/09/30/spring-boot%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90/">
-					<span class="left arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-left"></i>
-					</span>
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/blog/2026/04/09/2026-04-09-linux-and-java-commands/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">spring-boot多数据源</span>
-						<span class="post-nav-item">上一篇</span>
+						<span class="post-nav-title-item truncate max-w-48">Linux 与 Java 常用命令速查手册</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
 					</span>
 				</a>
 			</div>
-			
 			
 		</div>
 		
@@ -701,8 +835,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
-		<div class="page-title">git 常用命令</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B"><span class="nav-text">git 提交代码流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%90%8C%E6%AD%A5git%E4%BB%93%E5%BA%93%E4%BB%A3%E7%A0%81"><span class="nav-text">1. 同步git仓库代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A3%80%E6%9F%A5%E5%90%8C%E6%AD%A5%E7%BB%93%E6%9E%9C"><span class="nav-text">2. 检查同步结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8B%A5%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E5%92%8C%E4%BB%93%E5%BA%93%E4%BB%A3%E7%A0%81%E6%9C%89%E5%86%B2%E7%AA%81%EF%BC%8C-%E5%88%99%E6%8C%89%E7%85%A7%E4%B8%8B%E9%9D%A2%E6%B5%81%E7%A8%8B%E8%A7%A3%E5%86%B3"><span class="nav-text">若本地代码和仓库代码有冲突， 则按照下面流程解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81"><span class="nav-text">3. 查看状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%90%8C%E6%AD%A5git%E4%BB%93%E5%BA%93%E4%BB%A3%E7%A0%81"><span class="nav-text">4. 同步git仓库代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E9%80%89%E6%8B%A9%E8%A6%81%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-text">5. 选择要提交的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6-%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%8F%90%E4%BA%A4%E5%86%85%E5%AE%B9%E5%A4%87%E6%B3%A8"><span class="nav-text">6. 提交文件, 并添加提交内容备注</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E5%88%B0git%E4%BB%93%E5%BA%93"><span class="nav-text">7. 提交代码到git仓库</span></a></li></ol></li></ol></li></ol>
+		<div class="page-title">Spring Boot 代理路由排障：为什么 HttpClientContext 没有走代理</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E7%9C%8B%E9%85%8D%E7%BD%AE"><span class="nav-text">先看配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%99%E5%A5%97%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E6%98%AF%E6%80%8E%E4%B9%88%E5%B7%A5%E4%BD%9C%E7%9A%84"><span class="nav-text">这套代理实现是怎么工作的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D%E5%B1%82"><span class="nav-text">1. 自动装配层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Feign-%E8%B7%AF%E7%94%B1%E5%B1%82"><span class="nav-text">2. Feign 路由层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-URL-%E5%8C%B9%E9%85%8D%E5%B1%82"><span class="nav-text">3. URL 匹配层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-Feign-%E6%AD%A3%E5%B8%B8%EF%BC%8CHttpClientContext-%E5%8D%B4%E4%B8%8D%E8%B5%B0%E4%BB%A3%E7%90%86"><span class="nav-text">为什么 Feign 正常，HttpClientContext 却不走代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#doExecute-%E9%98%B6%E6%AE%B5%E5%B7%B2%E7%BB%8F%E5%8C%B9%E9%85%8D%E8%BF%87%E4%B8%80%E6%AC%A1%E4%BB%A3%E7%90%86"><span class="nav-text">doExecute 阶段已经匹配过一次代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RoutePlanner-%E9%98%B6%E6%AE%B5%E5%8F%88%E9%87%8D%E6%96%B0%E5%8C%B9%E9%85%8D%E4%BA%86%E4%B8%80%E6%AC%A1"><span class="nav-text">RoutePlanner 阶段又重新匹配了一次</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E5%9B%A0%E6%80%BB%E7%BB%93"><span class="nav-text">根因总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%A1%88"><span class="nav-text">最小修复方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95%E6%80%8E%E4%B9%88%E5%86%99"><span class="nav-text">回归测试怎么写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E7%BB%99%E6%88%91%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%8F%90%E9%86%92"><span class="nav-text">这个问题给我的两个提醒</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%8D%E8%A6%81%E6%8A%8A%E2%80%9CFeign-%E6%98%AF%E5%90%A6%E8%B5%B0%E4%BB%A3%E7%90%86%E2%80%9D%E5%92%8C%E2%80%9CURL-%E6%98%AF%E5%90%A6%E5%8C%B9%E9%85%8D%E4%BB%A3%E7%90%86%E2%80%9D%E6%B7%B7%E4%B8%BA%E4%B8%80%E8%B0%88"><span class="nav-text">1. 不要把“Feign 是否走代理”和“URL 是否匹配代理”混为一谈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%8A%E4%B8%8B%E6%96%87%E9%87%8C%E5%B7%B2%E7%BB%8F%E7%AE%97%E5%87%BA%E7%9A%84%E7%BB%93%E6%9E%9C%EF%BC%8C%E5%90%8E%E7%BB%AD%E9%98%B6%E6%AE%B5%E5%B0%BD%E9%87%8F%E5%A4%8D%E7%94%A8"><span class="nav-text">2. 上下文里已经算出的结果，后续阶段尽量复用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol>
 
 	</div>
 </div>
